@@ -1,0 +1,4 @@
+In terms of good practices , some CF firms utilise commercial databases to identify adverse information on individuals and entities as part of their screening processes . Some also employ automated AML/CFT surveillance systems to conduct daily screening on the relevant persons to promptly detect any change in the risk classification of these persons .
+
+@highlight
+Some CF firms utilise commercial databases to identify adverse information on individuals and entities as part of their screening processes , and also employ automated AML/CFT surveillance systems to conduct daily screening on the relevant persons to promptly detect any change in the risk classification of these persons .

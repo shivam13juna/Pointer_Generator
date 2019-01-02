@@ -1,0 +1,4 @@
+Some FIs have implemented a scoring matrix that integrates the various quantitative and qualitative risk factors in assessing the overall enterprise-wide ML/TF risk . In addition , certain FIs have processes to review their enterprise-wide ML/TF risk assessment every six months or at the trigger of a material event , whichever is earlier . CF firms are strongly encouraged to consider these additional factors in assessing their enterprise-wide ML/TF risks .
+
+@highlight
+In assessing their enterprise-wide ML/TF risks , CF firms are enouraged to consider implementing a scoring matrix that integrates the various quantitative and qualitative risk factors in assessing the overall enterprise-wide ML/TF risk . In addition , certain processes should be adopted to review their enterprise-wide ML/TF risk assessment every six months or at the trigger of a material event , whichever is earlier .

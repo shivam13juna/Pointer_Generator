@@ -1,0 +1,4 @@
+Paragraph 4.1 of the revised SFA04-N02 includes new obligations for CF firms to identify and assess the overall ML/TF risks they face as an institution , and take steps to mitigate these risks . The enterprise-wide ML/TF risk assessment forms the basis for the FI 's overall risk-based approach . CF firms should continue to fine-tune and review their risk assessments on a regular basis .
+
+@highlight
+CF firms are required to identify and assess the overall ML/TF risks they face as an institution , and to take steps to mitigate these risks . The enterprise-wide ML/TF risk assessment forms the basis for the FI 's overall risk-based approach . CF firms should continue to fine-tune and review their risk assessments on a regular basis .

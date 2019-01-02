@@ -1,0 +1,4 @@
+Most of the CF firms inspected have put in place P&P s on AML/CFT . However , some of the AML/CFT controls were not formalised or applied consistently within the firm . The common areas include ongoing monitoring of business relations with customers and the frequency of AML/CFT training . We would like to remind CF firms to formalise all their AML/CFT practices and apply their P&P s consistently . CF firms should also regularly review their P&P s to ensure that they remain relevant and up-to-date with regulatory obligations .
+
+@highlight
+AML/CFT controls were not formalised or applied consistently within the CF firms , with a regular review of their P&P s to ensure that they remain relevant and up-to-date with regulatory obligations , and with ongoing monitoring of business relations with customers and frequency of AML/CFT training .

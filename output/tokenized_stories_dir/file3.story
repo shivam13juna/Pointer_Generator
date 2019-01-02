@@ -1,0 +1,7 @@
+In 2014 , the Monetary Authority of Singapore -LRB- `` MAS '' -RRB- appointed external auditors under section 320 -LRB- 1 -RRB- of the Securities and Futures Act -LRB- Cap . 289 -RRB- -LRB- `` SFA '' -RRB- , section 65 -LRB- 1 -RRB- of the Financial Advisers Act -LRB- Cap . 110 -RRB- -LRB- `` FAA '' -RRB- , section 73 -LRB- 3 -RRB- of the Trust Companies Act -LRB- Cap . 336 -RRB- -LRB- `` TCA '' -RRB- and section 50 -LRB- 1 -RRB- of the Insurance Act -LRB- Cap . 142 -RRB- -LRB- `` IA '' -RRB- to conduct thematic inspections of close to 300 financial institutions -LRB- `` FIs '' -RRB- that conduct regulated activities under these Acts . The inspections were conducted from September 2014 to January 2015 , and covered both licensed and exempt corporate finance firms -LRB- `` CF firms '' -RRB- . They were based on a set of agreed-upon procedures between MAS and the external auditors , and focused on the FIs ' internal controls and policies and procedures in the following areas :
+a -RRB- Anti-money laundering and countering the financing of terrorism -LRB- `` AML/CFT '' -RRB- ; b -RRB- Recordkeeping ; and
+c -RRB- Staff trading .
+
+@highlight
+In 2014 the MAS appointed external auditors to conduct thematic inspections of 300 FIs , and both licensed and exempt CF firms . The audits were based on a set of agreed-upon procedures and focused on the FIs ' internal controls and policies and procedures in AML/CFT ; Recordkeeping ; and
+Staff trading .

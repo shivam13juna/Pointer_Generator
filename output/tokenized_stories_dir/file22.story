@@ -1,0 +1,7 @@
+We observed that a few CF firms did not have formalised staff trading P&P s to manage conflicts of interests and ensure compliance with the applicable laws . However , MAS observed that other CF firms had in place the following controls :
+´ staff trading P&P s requiring directors and relevant staff to obtain approval prior to executing personal trades in securities ; all staff are not allowed to trade securities placed on the black lists while staff involved in the relevant CF deals can not trade in securities on the restricted lists ;
+´ conducting periodic reviews of staff personal trades to ensure compliance with the firm 's staff trading P&P s ; and
+´ prohibiting staff from trading in their personal accounts altogether .
+
+@highlight
+CF firms should formalise staff trading P&P s to manage conflicts of interests and ensure compliance with the applicable laws . Some examples of controls seen : staff trading P&P s required directors and relevant staff to obtain approval prior to executing personal trades ; all staff were not allowed to trade securities placed on the black lists while staff involved in the relevant CF deals could not trade in securities on the restricted lists ; periodic reviews of staff personal trades to ensure compliance with the trading P&P s ; staff prohibited from trading in their personal accounts altogether .

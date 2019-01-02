@@ -1,0 +1,4 @@
+Holders of a Capital Markets Services Licence for conducting the regulated activity of Advising on Corporate Finance under the Securities and Futures Act -LRB- Cap . 289 -RRB- , and Persons Exempted from the Requirement to Hold a Capital Markets Services Licence under Paragraph 7 -LRB- 1 -RRB- -LRB- b -RRB- of the Second Schedule to the Securities and Futures -LRB- Licensing and Conduct of Business -RRB- Regulations
+
+@highlight
+This circular is relevant for holders of a CMS Licence for conducting the regulated activity of Advising on Corporate Finance under the SFA , and for persons exempted from the requirements to hold a CMS Licence under paragraph 7 -LRB- 1 -RRB- -LRB- b -RRB- .

@@ -1,0 +1,4 @@
+Some CF firms had performed simplified CDD on customers without documenting the details of their risk assessments or the nature of simplified CDD measures performed . CF firms should only perform simplified CDD measures if they are satisfied that the risks of ML/TF are low . As stated in paragraph 7 of the revised SFA04-N02 , CF firms are required to analyse the ML/TF risks of customers and document their basis for applying simplified CDD .
+
+@highlight
+When CF firms perform simplified CDD on customers they need to document the details of their risk assessments/the nature of simplified CDD measures performed . CF firms should only perform simplified CDD measures if they are satisfied that the risks of ML/TF are low .

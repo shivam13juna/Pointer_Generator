@@ -20,6 +20,7 @@ import glob
 import random
 import struct
 import csv
+import io
 from tensorflow.core.example import example_pb2
 
 # <s> and </s> are used in the data files to segment the abstracts into sentences. They don't receive vocab ids.
@@ -54,7 +55,7 @@ class Vocab(object):
       self._count += 1
 
     # Read the vocab file and add words up to max_size
-    with open(vocab_file, 'r', encoding='utf-8') as vocab_f:
+    with io.open(vocab_file, 'r', encoding='utf-8') as vocab_f:
       for line in vocab_f:
         pieces = line.split()
         if len(pieces) != 2:
@@ -98,7 +99,7 @@ class Vocab(object):
       fpath: place to write the metadata file
     """
     print("Writing word embedding metadata file to %s..." % (fpath))
-    with open(fpath, "w", encoding='utf-8') as f:
+    with io.open(fpath, "w", encoding='utf-8') as f:
       fieldnames = ['word']
       writer = csv.DictWriter(f, delimiter="\t", fieldnames=fieldnames)
       for i in range(self.size()):
@@ -129,7 +130,7 @@ def example_generator(data_path, single_pass):
     else:
       random.shuffle(filelist)
     for f in filelist:
-      reader = open(f, 'rb')
+      reader = io.open(f, 'rb')
       while True:
         len_bytes = reader.read(8)
         if not len_bytes: break # finished reading this file

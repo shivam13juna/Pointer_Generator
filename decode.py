@@ -22,7 +22,7 @@ import tensorflow as tf
 import beam_search
 import data
 import json
-import pyrouge
+# import pyrouge
 import util
 import logging
 import numpy as np
@@ -111,85 +111,85 @@ class BeamSearchDecoder(object):
         decoded_words = decoded_words
       decoded_output = ' '.join(decoded_words) # single string
 
-      if FLAGS.single_pass:
-        self.write_for_rouge(original_abstract_sents, decoded_words, counter) # write ref summary and decoded summary to file, to eval with pyrouge later
-        counter += 1 # this is how many examples we've decoded
-      else:
-        print_results(article_withunks, abstract_withunks, decoded_output) # log output to screen
-        self.write_for_attnvis(article_withunks, abstract_withunks, decoded_words, best_hyp.attn_dists, best_hyp.p_gens) # write info to .json file for visualization tool
+      # if FLAGS.single_pass:
+      #   self.write_for_rouge(original_abstract_sents, decoded_words, counter) # write ref summary and decoded summary to file, to eval with pyrouge later
+      counter += 1 # this is how many examples we've decoded
+      # else:
+      print_results(article_withunks, abstract_withunks, decoded_output) # log output to screen
+        # self.write_for_attnvis(article_withunks, abstract_withunks, decoded_words, best_hyp.attn_dists, best_hyp.p_gens) # write info to .json file for visualization tool
 
         # Check if SECS_UNTIL_NEW_CKPT has elapsed; if so return so we can load a new checkpoint
-        t1 = time.time()
-        if t1-t0 > SECS_UNTIL_NEW_CKPT:
-          tf.logging.info('We\'ve been decoding with same checkpoint for %i seconds. Time to load new checkpoint', t1-t0)
-          _ = util.load_ckpt(self._saver, self._sess)
-          t0 = time.time()
+      t1 = time.time()
+      if t1-t0 > SECS_UNTIL_NEW_CKPT:
+        tf.logging.info('We\'ve been decoding with same checkpoint for %i seconds. Time to load new checkpoint', t1-t0)
+        _ = util.load_ckpt(self._saver, self._sess)
+        t0 = time.time()
 
-  def write_for_rouge(self, reference_sents, decoded_words, ex_index):
-    """Write output to file in correct format for eval with pyrouge. This is called in single_pass mode.
+  # def write_for_rouge(self, reference_sents, decoded_words, ex_index):
+  #   """Write output to file in correct format for eval with pyrouge. This is called in single_pass mode.
 
-    Args:
-      reference_sents: list of strings
-      decoded_words: list of strings
-      ex_index: int, the index with which to label the files
-    """
-    # First, divide decoded output into sentences
-    decoded_sents = []
-    while len(decoded_words) > 0:
-      try:
-        fst_period_idx = decoded_words.index(".")
-      except ValueError: # there is text remaining that doesn't end in "."
-        fst_period_idx = len(decoded_words)
-      sent = decoded_words[:fst_period_idx+1] # sentence up to and including the period
-      decoded_words = decoded_words[fst_period_idx+1:] # everything else
-      decoded_sents.append(' '.join(sent))
+  #   Args:
+  #     reference_sents: list of strings
+  #     decoded_words: list of strings
+  #     ex_index: int, the index with which to label the files
+  #   """
+  #   # First, divide decoded output into sentences
+  #   decoded_sents = []
+  #   while len(decoded_words) > 0:
+  #     try:
+  #       fst_period_idx = decoded_words.index(".")
+  #     except ValueError: # there is text remaining that doesn't end in "."
+  #       fst_period_idx = len(decoded_words)
+  #     sent = decoded_words[:fst_period_idx+1] # sentence up to and including the period
+  #     decoded_words = decoded_words[fst_period_idx+1:] # everything else
+  #     decoded_sents.append(' '.join(sent))
 
-    # pyrouge calls a perl script that puts the data into HTML files.
-    # Therefore we need to make our output HTML safe.
-    decoded_sents = [make_html_safe(w) for w in decoded_sents]
-    reference_sents = [make_html_safe(w) for w in reference_sents]
+  #   # pyrouge calls a perl script that puts the data into HTML files.
+  #   # Therefore we need to make our output HTML safe.
+  #   decoded_sents = [make_html_safe(w) for w in decoded_sents]
+  #   reference_sents = [make_html_safe(w) for w in reference_sents]
 
-    # Write to file
-    ref_file = os.path.join(self._rouge_ref_dir, "%06d_reference.txt" % ex_index)
-    decoded_file = os.path.join(self._rouge_dec_dir, "%06d_decoded.txt" % ex_index)
+  #   # Write to file
+  #   ref_file = os.path.join(self._rouge_ref_dir, "%06d_reference.txt" % ex_index)
+  #   decoded_file = os.path.join(self._rouge_dec_dir, "%06d_decoded.txt" % ex_index)
 
-    with open(ref_file, "w", encoding='utf-8') as f:
-      for idx,sent in enumerate(reference_sents):
-        f.write(sent) if idx==len(reference_sents)-1 else f.write(sent+"\n")
-    with open(decoded_file, "w", encoding='utf-8') as f:
-      for idx,sent in enumerate(decoded_sents):
-        f.write(sent) if idx==len(decoded_sents)-1 else f.write(sent+"\n")
+  #   with open(ref_file, "w", encoding='utf-8') as f:
+  #     for idx,sent in enumerate(reference_sents):
+  #       f.write(sent) if idx==len(reference_sents)-1 else f.write(sent+"\n")
+  #   with open(decoded_file, "w", encoding='utf-8') as f:
+  #     for idx,sent in enumerate(decoded_sents):
+  #       f.write(sent) if idx==len(decoded_sents)-1 else f.write(sent+"\n")
 
-    tf.logging.info("Wrote example %i to file" % ex_index)
+  #   tf.logging.info("Wrote example %i to file" % ex_index)
 
 
-  def write_for_attnvis(self, article, abstract, decoded_words, attn_dists, p_gens):
-    """Write some data to json file, which can be read into the in-browser attention visualizer tool:
-      https://github.com/abisee/attn_vis
+  # def write_for_attnvis(self, article, abstract, decoded_words, attn_dists, p_gens):
+  #   """Write some data to json file, which can be read into the in-browser attention visualizer tool:
+  #     https://github.com/abisee/attn_vis
 
-    Args:
-      article: The original article string.
-      abstract: The human (correct) abstract string.
-      attn_dists: List of arrays; the attention distributions.
-      decoded_words: List of strings; the words of the generated summary.
-      p_gens: List of scalars; the p_gen values. If not running in pointer-generator mode, list of None.
-    """
-    global file_no
-    article_lst = article.split() # list of words
-    decoded_lst = decoded_words # list of decoded words
-    to_write = {
-        'article_lst': [make_html_safe(t) for t in article_lst],
-        'decoded_lst': [make_html_safe(t) for t in decoded_lst],
-        'abstract_str': make_html_safe(abstract),
-        'attn_dists': attn_dists
-    }
-    if FLAGS.pointer_gen:
-      to_write['p_gens'] = p_gens
-    output_fname = os.path.join(self._decode_dir, 'attn_vis_data_%04d.json' % file_no)
-    with open(output_fname, 'w', encoding='utf-8') as output_file:
-      json.dump(to_write, output_file)
-    tf.logging.info('Wrote visualization data to %s', output_fname)
-    file_no += 1
+  #   Args:
+  #     article: The original article string.
+  #     abstract: The human (correct) abstract string.
+  #     attn_dists: List of arrays; the attention distributions.
+  #     decoded_words: List of strings; the words of the generated summary.
+  #     p_gens: List of scalars; the p_gen values. If not running in pointer-generator mode, list of None.
+  #   """
+  #   global file_no
+  #   article_lst = article.split() # list of words
+  #   decoded_lst = decoded_words # list of decoded words
+  #   to_write = {
+  #       'article_lst': [make_html_safe(t) for t in article_lst],
+  #       'decoded_lst': [make_html_safe(t) for t in decoded_lst],
+  #       'abstract_str': make_html_safe(abstract),
+  #       'attn_dists': attn_dists
+  #   }
+  #   if FLAGS.pointer_gen:
+  #     to_write['p_gens'] = p_gens
+  #   output_fname = os.path.join(self._decode_dir, 'attn_vis_data_%04d.json' % file_no)
+  #   with open(output_fname, 'w', encoding='utf-8') as output_file:
+  #     json.dump(to_write, output_file)
+  #   tf.logging.info('Wrote visualization data to %s', output_fname)
+  #   file_no += 1
 
 
 def print_results(article, abstract, decoded_output):
@@ -208,40 +208,40 @@ def make_html_safe(s):
   return s
 
 
-def rouge_eval(ref_dir, dec_dir):
-  """Evaluate the files in ref_dir and dec_dir with pyrouge, returning results_dict"""
-  r = pyrouge.Rouge155()
-  r.model_filename_pattern = '#ID#_reference.txt'
-  r.system_filename_pattern = '(\d+)_decoded.txt'
-  r.model_dir = ref_dir
-  r.system_dir = dec_dir
-  logging.getLogger('global').setLevel(logging.WARNING) # silence pyrouge logging
-  rouge_results = r.convert_and_evaluate()
-  return r.output_to_dict(rouge_results)
+# def rouge_eval(ref_dir, dec_dir):
+#   """Evaluate the files in ref_dir and dec_dir with pyrouge, returning results_dict"""
+#   r = pyrouge.Rouge155()
+#   r.model_filename_pattern = '#ID#_reference.txt'
+#   r.system_filename_pattern = '(\d+)_decoded.txt'
+#   r.model_dir = ref_dir
+#   r.system_dir = dec_dir
+#   logging.getLogger('global').setLevel(logging.WARNING) # silence pyrouge logging
+#   rouge_results = r.convert_and_evaluate()
+#   return r.output_to_dict(rouge_results)
 
 
-def rouge_log(results_dict, dir_to_write):
-  """Log ROUGE results to screen and write to file.
+# def rouge_log(results_dict, dir_to_write):
+#   """Log ROUGE results to screen and write to file.
 
-  Args:
-    results_dict: the dictionary returned by pyrouge
-    dir_to_write: the directory where we will write the results to"""
-  log_str = ""
-  for x in ["1","2","l"]:
-    log_str += "\nROUGE-%s:\n" % x
-    for y in ["f_score", "recall", "precision"]:
-      key = "rouge_%s_%s" % (x,y)
-      key_cb = key + "_cb"
-      key_ce = key + "_ce"
-      val = results_dict[key]
-      val_cb = results_dict[key_cb]
-      val_ce = results_dict[key_ce]
-      log_str += "%s: %.4f with confidence interval (%.4f, %.4f)\n" % (key, val, val_cb, val_ce)
-  tf.logging.info(log_str) # log to screen
-  results_file = os.path.join(dir_to_write, "ROUGE_results.txt")
-  tf.logging.info("Writing final ROUGE results to %s...", results_file)
-  with open(results_file, "w", encoding='utf-8') as f:
-    f.write(log_str)
+#   Args:
+#     results_dict: the dictionary returned by pyrouge
+#     dir_to_write: the directory where we will write the results to"""
+#   log_str = ""
+#   for x in ["1","2","l"]:
+#     log_str += "\nROUGE-%s:\n" % x
+#     for y in ["f_score", "recall", "precision"]:
+#       key = "rouge_%s_%s" % (x,y)
+#       key_cb = key + "_cb"
+#       key_ce = key + "_ce"
+#       val = results_dict[key]
+#       val_cb = results_dict[key_cb]
+#       val_ce = results_dict[key_ce]
+#       log_str += "%s: %.4f with confidence interval (%.4f, %.4f)\n" % (key, val, val_cb, val_ce)
+#   tf.logging.info(log_str) # log to screen
+#   results_file = os.path.join(dir_to_write, "ROUGE_results.txt")
+#   tf.logging.info("Writing final ROUGE results to %s...", results_file)
+#   with open(results_file, "w", encoding='utf-8') as f:
+#     f.write(log_str)
 
 def get_decode_dir_name(ckpt_name):
   """Make a descriptive name for the decode dir, including the name of the checkpoint we use to decode. This is called in single_pass mode."""

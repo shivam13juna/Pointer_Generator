@@ -6,9 +6,9 @@ One more thing though, I've removed ROUGE function for evaluation of model, pyro
 ### This repo is being actively maintained for now, let's get all those issues solved people GO! GO! GO!
 
 # How to run:
-  1. Well original pointer generator pretty much takes care of it all, but in this model, you need to train without coverage for first like 600k iteration, and then trained for like next 25k iteration with coverage, that should pretty much get you the result
+  1. Well documentation in the original pointer generator pretty much takes care of it all, but in this model, you need to train without coverage for first 600k iteration, and then trained for next 25k iteration with coverage, that should pretty much get you the result :P .
 
-  2. Next thing, there was a lot of parameters you've to mention in terminal while running, so I took liberty of making all of it default, if you must change the commadn you can do so by changing it in the code, DUH!
+  2. Next thing, there was a lot of parameters you've to mention in terminal while running, so I took liberty of making all of it default, if you must change the command you can do so by changing it in the code! 
 
   3. Also, *IMPORTANT FOR DECODING, you've to uncomment the lines of decode in last paragraph of run_summarization.py*, raise an issue if it doesn't work out for you, i'll help you solve it. 
 
